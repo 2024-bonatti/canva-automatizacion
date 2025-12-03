@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   sistema-cisterna-app:
-    container_name: sistema_cisterna_plc
+    container_name: sistema_cisterna_plc_v2
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8085:80"
     restart: always

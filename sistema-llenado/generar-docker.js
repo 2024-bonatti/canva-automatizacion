@@ -36,16 +36,17 @@ const nginxContent = `server {
 `;
 
 // 3. Contenido de docker-compose.yml
+// CAMBIOS: Puerto 8085 y nombre de contenedor único para evitar conflictos
 const composeContent = `version: '3.8'
 
 services:
   sistema-cisterna-app:
-    container_name: sistema_cisterna_plc
+    container_name: sistema_cisterna_plc_v2
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "8085:80"
     restart: always
 `;
 
@@ -63,4 +64,4 @@ crearArchivo('nginx.conf', nginxContent);
 crearArchivo('docker-compose.yml', composeContent);
 
 console.log("\n✨ ¡Listo! Archivos generados correctamente.");
-console.log("👉 Ahora ejecuta: git add . && git commit -m 'Add Docker files' && git push");
+console.log("👉 Ahora ejecuta: git add . && git commit -m 'Fix Docker config' && git push");
